@@ -2,14 +2,6 @@
 <div align="center">
     <h3>SMART CROP RECOMMENDATION SYSTEM WITH PLANT DISEASE IDENTIFICATION</h3>
 </div>
-
-<div align="center">
-    <h3>Link : https://agrisens.netlify.app/ </h3>
-</div>
-
-# 
-![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/e6a4a6be-7c42-4155-ab16-6585ebb026f5)
-
 ## 📌 Overview
 
 This project aims to revolutionize agriculture by integrating machine learning technology to provide smart crop recommendations and assist in plant disease identification. By leveraging data analytics and deep learning techniques, farmers can make informed decisions for optimal crop selection and management.
@@ -100,5 +92,9 @@ The results of the Smart Crop Recommendation System with Plant Disease Identific
 
 
 These results demonstrate the effectiveness of the Smart Crop Recommendation System with Plant Disease Identification in assisting farmers with informed crop selection and disease management, thereby contributing to improved agricultural practices and crop yields.
+
+<div align="center">
+    <h3>Link : https://agrisens.netlify.app/ </h3>
+</div>
 
 
