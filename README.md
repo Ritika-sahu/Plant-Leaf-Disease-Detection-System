@@ -1,161 +1,104 @@
 # Plant-Leaf-Disease-Detection-System
-# Farmassist
+<div align="center">
+    <h1>SMART CROP RECOMMENDATION SYSTEM WITH PLANT DISEASE IDENTIFICATION</h1>
+</div>
 
-<p align=center><img src="./docs/img/app_icon.png" width=20% height=20%></p>
+<div align="center">
+    <h3>Link : https://agrisens.netlify.app/ </h3>
+</div>
 
-Farmassist is a smart farming app for IoT and AI-powered plant disease detection. It is built with Flutter and uses Firebase as its backend.
+# 
+![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/e6a4a6be-7c42-4155-ab16-6585ebb026f5)
 
-### App Screenshots
+## 📌 Overview
 
-| <img src="./docs/img/view_news.gif"> | <img src="./docs/img/monitor_iot.gif"> | <img src="./docs/img/detect_disease.gif"> |
-| :----------------------------------: | :------------------------------------: | :---------------------------------------: |
-|       _View Agricultural News_       |      _Receive IoT Telemetry Data_      |          _Detect Plant Disease_           |
+This project aims to revolutionize agriculture by integrating machine learning technology to provide smart crop recommendations and assist in plant disease identification. By leveraging data analytics and deep learning techniques, farmers can make informed decisions for optimal crop selection and management.
 
-### Download Android APK
+## 📌 Features
 
-You can download the latest version of the Android APK [here](https://github.com/farmassistX/farmassist/releases/tag/v1.0.21).
+- **Smart Crop Recommendation :** Utilizes machine learning algorithms to recommend suitable crops based on factors like soil nutrients, climate conditions, and historical data.
+- **Plant Disease Identification :** Employs convolutional neural networks (CNNs) to detect and classify plant diseases accurately from uploaded images, enabling timely interventions.
+- **User-Friendly Interface :** Offers an intuitive interface for farmers to input relevant data and receive personalized crop recommendations and disease diagnosis.
+- **Today's Weather Forecast :** Provides real-time weather insights on temperature, humidity, and more, enabling farmers to plan their farming activities with precision.
+- **Explore Crop Planning :** Guides farmers in planning crop planting schedules for optimal productivity based on soil quality, weather, and other essential factors.
 
-## Architecture
+## 📌 Data
 
-<p align=center><img src="./docs/img/architecture.png" width=75% height=75%></p>
-<p align="center"><i>Architecture Diagram of Farmassist</i></p>
+### Crop Recommendation Model :
+This dataset consists of **2200 rows** in total.
+**Each row has 8 columns representing Nitrogen, Phosphorous, Potassium, Temperature, Humidity, PH, Rainfall and Label**
+NPK(Nitrogen, Phosphorous and Potassium) values represent the NPK values in the soil. Temperature, humidity and rainfall are the average values of the sorroundings environment respectively. PH is the PH value present in the soil. **The Label column tells us the type of crop that's best suited to grow based on these conditions.
+Label is the value we will be predicting**
 
-The above illustration shows a high level overview of the Farmassist project. Farmassist consists of 3 subsystems:
+### Plant Disease Identification Model :
+The Plant Disease Image Dataset utilized for crop disease identification comprises a secondary dataset featuring **70,295 plant snapshots** exhibiting a spectrum of illnesses. Standardized to a resolution of 128x128 pixels, this dataset occupies a storage space of five gigabytes. Within this dataset, there are **38 distinct classes**, encompassing 14 different plant types and **26 identifiable illnesses**. Serving as the primary training data for all machine learning algorithms referenced in the study, the dataset's algorithm exhibiting the highest accuracy was chosen for further evaluation and application. Data preprocessing techniques, including normalization, feature scaling, and handling of missing values, were applied to ensure data consistency and cleanliness.
 
-- [Farm Management Subsystem](#farm-management): Users can view agricultural news and manage planting and harvesting data.
-- [IoT Monitoring Subsystem](#iot-monitoring): Users can view IoT telemetry data from the farm in the form of charts and receive alert notifications for abnormal telemetry data.
-- [Plant Disease Detection Subsystem](#plant-disease-detection): Users can take a picture of a diseased plant via camera to detect the disease type.
 
-The backend services used are as follows:
+### Crop Recommendation Model :
+   
+For the Crop Recommendation Model, seven classification algorithms were utilized to predict suitable crop recommendations. These algorithms include:
 
-- [Firebase Authentication](https://firebase.google.com/products/auth)
-- [Cloud Firestore](https://firebase.google.com/products/firestore)
-- [Realtime Database](https://firebase.google.com/products/realtime-database)
-- [Cloud Functions](https://firebase.google.com/products/functions)
-- [Cloud Messaging](https://firebase.google.com/products/cloud-messaging)
-- [Google Cloud AutoML Vision](https://cloud.google.com/automl)
+- Decision Tree
+- Gaussian Naive Bayes
+- Support Vector Machine (SVM)
+- Logistic Regression
+- Random Forest (achieved the best accuracy)
+- XGBoost
+- KNN
+  
+Each algorithm was trained on a dataset comprising various factors such as soil nutrients, climate conditions, and historical data to provide accurate crop recommendations to farmers.
 
-The following sections explain more detail about the services and components used by the corresponding subsystems.
+### Plant Disease Identification Model :
+   
+For the Plant Disease Identification Model, a Convolutional Neural Network (CNN) architecture was employed. This CNN model was specifically trained for crop disease identification. Leveraging deep learning techniques, the CNN analyzes images of plant leaves to detect and classify diseases accurately. This model aids farmers in early disease detection and management, contributing to improved crop health and yield.
 
-## Authentication and User Profile
+## 📌 Integration
 
-The signup and login flow of Farmassist is developed using the [Bloc](https://bloclibrary.dev/#/) library and Firebase Authentication. After a user signs up successfully, the user data will be stored in the data model of Cloud Firestore as shown below:
+These two models are integrated into the Smart Crop Recommendation System with Plant Disease Identification. This system provides farmers with comprehensive support, offering both crop recommendations based on various factors and precise identification of crop diseases through image analysis. By combining these models, the system enables farmers to make informed decisions, optimize crop selection, and effectively manage plant diseases for sustainable agriculture and enhanced productivity.
 
-```
-{
-  "users": { // "users" collection
-    "4lbwvicymz71LfY9POHZ": { // "userId" document
-      "id": "4lbwvicymz71LfY9POHZ",
-      "email": "example@farmassist.com",
-      "displayName": "Jack",
-      "tokens": [ ... ] // used by Cloud Messaging
-    },
-    "4DkFgqNdjZnEh78YmsE3": { ... },
-    // more "userId" documents
-  }
-}
-```
 
-## Farm Management
+## 📌 Results
 
-Cloud Firestore, a NoSQL, document-oriented database, is used to store farm management data using key-value pairs. In Cloud Firestore, each collection consists of a number of documents in which each document can store a number of subcollections.
+The results of the Smart Crop Recommendation System with Plant Disease Identification showcase the efficacy of the implemented models:
 
-There are 2 types of farm management data stored: **planting data** and **harvesting data**. An example of the data model for harvesting data is shown below:
+### Crop Recommendation Model:
+- Seven classification algorithms were evaluated for crop recommendation tasks.
+- The accuracy of each algorithm was assessed, with the Random Forest algorithm achieving the highest accuracy of 99.54%.
+- Table 1 below illustrates the accuracy achieved by each algorithm:
 
-```
-{
-  "planting": { // "planting" collection
-    "4lbwvicymz71LfY9POHZ": { // "userId" document
-      "months": { // "months" subcollection
-        "jan": { // "jan" document
-          "plantName": "tomato",
-          "noOfPlants": "100",
-          "plantDate": "25-03-2021",
-          "estimatedHarvestWeek": "9",
-          "harvestDate": "25-5-2021",
-          "harvested": true
-        },
-        "feb": { ... } // "feb" document
-        // more documents for the remaining months
-      }
-    },
-    // more "userId" documents
-  }
-}
-```
+**Table 1: Accuracy vs Algorithms**
 
-Under farm management, 2 extra APIs are used:
+| Algorithm            | Accuracy   |
+|----------------------|------------|
+| Decision Tree        | 90.0       |
+| Gaussian Naive Bayes| 99.09      |
+| Support Vector Machine (SVM) | 10.68 |
+| Logistic Regression  | 95.23      |
+| Random Forest        | 99.55      |
+| XGBoost              | 99.09      |
+| KNN                  | 97.5       |
 
-- [News API](https://newsapi.org/docs/endpoints/top-headlines) is used to fetch top headlines for science category.
-- [OpenWeather API](https://openweathermap.org/current) is used to obtain weather data of the farm location.
+| Accuracy Comparison Graph of all models |
+|---------------------------|
+![1](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/604bd0b3-5161-48e2-aef0-28267fd85aac)
 
-## IoT Monitoring
+| Accuracy vs Crop Graphs |
+| ------------------------|
+| ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/7a268735-3af0-4849-9ea5-6cfbe92f0e23) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/6792cbce-4ecd-4827-916d-9c726e141547) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/38bdda26-5c84-427c-93a6-5bc26239f6a6) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/577be114-0ac3-4e1a-a29a-7798b49384fd) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/a377680d-bd09-4e8e-a3c5-e9a064826f85) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/b120061b-3bf3-4ebb-9cc0-145d17a7f995) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/8683cc6e-be9d-4d38-b114-5e7076cd75c6) |
 
-Realtime Database acts as a repository of IoT telemetry data that performs data synchronization with the Farmassist app. The overall process of IoT monitoring is described as follows:
+### Plant Disease Identification Model:
+- The Convolutional Neural Network (CNN) architecture was trained for crop disease identification.
+- The CNN achieved significant accuracy in accurately detecting and classifying various plant diseases from leaf images.
 
-1. When new telemetry data is stored in Realtime Database, Cloud Functions will be triggered.
-2. Cloud Functions execute a function to check for abnormal values in the received telemetry data.
-3. If abnormal values exist, Cloud Functions will call Cloud Messaging service to send an alert notification to the relevant app user, which is identified by a unique token.
+| **Example of Diseased image** |
+| ------------------------------|
+| ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/2f230981-13b5-4010-a346-595c90fb6b32) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/4219025a-0319-4b72-847f-b063c06ced0c) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/2ece067b-5f8c-46d6-b05f-d1517aaf62a9) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/cdb08134-7177-4df9-841d-1f9d3f171085) |
 
-5 types of telemetry data are stored as JSON objects in Realtime Database:
+| Training and validation (accuracy and loss) CNN |
+|---------------------------------------------|
+| ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/71e95ae9-05df-44dd-8192-133180981113) ![image](https://github.com/ravikant-diwakar/AgriSens-SMART-CROP-RECOMMENDATION-SYSTEM-WITH-PLANT-DISEASE-IDENTIFICATION/assets/110620635/9a11536a-8480-41cd-8099-9c0cec2c2c62) |
 
-- Air Humidity (%)
-- Air Temperature (°C)
-- Soil Moisture (%)
-- Soil pH (pH)
-- Soil Salinity (Millisiemens/cm)
 
-Each telemetry data is stored as a key-value pair of timestamp and value. An example of the data model for telemetry data is shown below:
+These results demonstrate the effectiveness of the Smart Crop Recommendation System with Plant Disease Identification in assisting farmers with informed crop selection and disease management, thereby contributing to improved agricultural practices and crop yields.
 
-```
-{
-  "telemetry_data": {
-    "4lbwvicymz71LfY9POHZ": { // userId
-      "humidity": {
-        "1617979596947": "56.64", // timestamp: value
-        "1617979596949": "55.89",
-        // more values
-      },
-      "moisture": { ... },
-      "pH": { ... },
-      "salinity": { ... },
-      "temperature": { ... }
-    },
-    // more telemetry data from other users
-  }
-}
-```
 
-For demonstration purpose, a minimal IoT device simulator is built to send telemetry data to Realtime Database. For more information, you can refer to [Farmassist IoT Device Simulator](https://github.com/farmassistX/farmassist-iot-device-simulator).
-
-The code for Cloud Functions can be found in [Farmassist Firebase](https://github.com/farmassistX/farmassist-firebase).
-
-## Plant Disease Detection
-
-A plant disease detection model was trained using Google Cloud AutoML Vision. The training dataset is a subset of [PlantVillage dataset from Mendeley Data](https://data.mendeley.com/datasets/tywbtsjrjv/1). A total of 2,941 diseased plant images that consists of 6 disease categories were used:
-
-- Corn Common Rust (500 images)
-- Corn Gray Leaf Spot (441 images)
-- Potato Early Blight (500 images)
-- Strawberry Leaf Scorch (500 images)
-- Tomato Leaf Mold (500 images)
-- Tomato Mosaic Virus (500 images)
-
-After training, the model was exported as a [TensorFlow Lite](https://www.tensorflow.org/lite) model, which is suitable to be run on a mobile device. You can find the trained model [here](/assets/model.tflite).
-
-## Flutter Packages Used
-
-Some of the useful Flutter packages used in the Farmassist app are listed in the table below. Refer to [pubspec.yaml](pubspec.yaml) for the complete package information.
-
-|                                                                     Package                                                                     | Functions                                                                                                                                       |
-| :---------------------------------------------------------------------------------------------------------------------------------------------: | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                                  [Provider](https://pub.dev/packages/provider)                                                  | A simple state management tool                                                                                                                  |
-| [bloc](https://bloclibrary.dev/#/) and [flutter_bloc](https://pub.dev/documentation/flutter_bloc/latest/flutter_bloc/flutter_bloc-library.html) | A state management library implemented using [BLoC](https://www.raywenderlich.com/4074597-getting-started-with-the-bloc-pattern) design pattern |
-|                                                  [fl_chart](https://pub.dev/packages/fl_chart)                                                  | A powerful Flutter chart library with beautiful UI                                                                                              |
-|                                                 [getwidget](https://pub.dev/packages/getwidget)                                                 | A Flutter UI library with 1000+ pre-made UI components                                                                                          |
-
-## References
-
-- [Bloc: Flutter Firebase Login Tutorial](https://bloclibrary.dev/#/flutterfirebaselogintutorial)
-- [GitHub: Farmsmart Flutter App](https://github.com/farmsmart/farmsmart-flutter)
-- [GitHub: Best Flutter UI Templates](https://github.com/mitesh77/Best-Flutter-UI-Templates)
