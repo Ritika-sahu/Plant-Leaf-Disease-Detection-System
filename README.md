@@ -1,6 +1,6 @@
 # Plant-Leaf-Disease-Detection-System
 <div align="center">
-    <h1>SMART CROP RECOMMENDATION SYSTEM WITH PLANT DISEASE IDENTIFICATION</h1>
+    <h3>SMART CROP RECOMMENDATION SYSTEM WITH PLANT DISEASE IDENTIFICATION</h3>
 </div>
 
 <div align="center">
