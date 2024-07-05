@@ -154,24 +154,8 @@ Some of the useful Flutter packages used in the Farmassist app are listed in the
 |                                                  [fl_chart](https://pub.dev/packages/fl_chart)                                                  | A powerful Flutter chart library with beautiful UI                                                                                              |
 |                                                 [getwidget](https://pub.dev/packages/getwidget)                                                 | A Flutter UI library with 1000+ pre-made UI components                                                                                          |
 
-## Setup
-
-Things to do if you want to fork or contribute to the project.
-
-1. [Create a Firebase project and add Firebase to your Flutter app](https://firebase.google.com/docs/flutter/setup?platform=android).
-2. Refer to [Farmassist IoT Device Simulator](https://github.com/farmassistX/farmassist-iot-device-simulator) to see how fake telemetery data can be sent to Realtime Database.
-3. Refer to [Farmassist Firebase](https://github.com/farmassistX/farmassist-firebase) for the Cloud Functions code that call Cloud Messaging service.
-4. Refer to [Edge Device Model Quickstart](https://cloud.google.com/vision/automl/docs/edge-quickstart) if you want to train your own model for plant disease detection.
-5. Refer to [CI/CD for Flutter Apps Using GitHub Actions](https://betterprogramming.pub/ci-cd-for-flutter-apps-using-github-actions-b833f8f7aac) to set up a workflow that can release an APK for your Flutter app whenever someone pushes the code to GitHub. Instead of using `push` event, I set up a manual trigger with `workflow_dispatch` event.
-
 ## References
 
-- [GitHub: Farmassist IoT Device Simulator](https://github.com/farmassistX/farmassist-iot-device-simulator)
-- [GitHub: Farmassist Firebase](https://github.com/farmassistX/farmassist-firebase)
 - [Bloc: Flutter Firebase Login Tutorial](https://bloclibrary.dev/#/flutterfirebaselogintutorial)
-- [FlutterFire: Cloud Messaging Usage](https://firebase.flutter.dev/docs/messaging/usage)
-- [Google Cloud AutoML Vision: Edge Device Model Quickstart](https://cloud.google.com/vision/automl/docs/edge-quickstart)
-- [Medium: AutoML Vision—How To Train Your Model?](https://towardsdatascience.com/automl-vision-how-to-train-your-model-c7e887051453)
-- [Medium: CI/CD for Flutter Apps Using GitHub Actions](https://betterprogramming.pub/ci-cd-for-flutter-apps-using-github-actions-b833f8f7aac)
 - [GitHub: Farmsmart Flutter App](https://github.com/farmsmart/farmsmart-flutter)
 - [GitHub: Best Flutter UI Templates](https://github.com/mitesh77/Best-Flutter-UI-Templates)
